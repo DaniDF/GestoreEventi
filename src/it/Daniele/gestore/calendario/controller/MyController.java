@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import it.Daniele.gestore.calendario.model.Event;
 import it.Daniele.gestore.calendario.persister.BadFileFormatException;
 import it.Daniele.gestore.calendario.persister.Persister;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 
@@ -31,7 +30,7 @@ public class MyController implements Controller {
 				result.addAll(x.load().getCalendar());
 			}
 		} catch (BadFileFormatException e) {
-			myAlert(AlertType.ERROR, e.toString(), ButtonType.CLOSE);
+			Controller.myAlert(AlertType.ERROR, e.toString(), ButtonType.CLOSE);
 		}
 		
 		return result;
@@ -50,10 +49,4 @@ public class MyController implements Controller {
 		
 		return nextEvent.size() == 0 ? Optional.empty() : Optional.ofNullable(nextEvent.first());
 	}
-	
-	public static void myAlert(AlertType alertType,String msg, ButtonType buttonType) {
-		Alert alrt = new Alert(AlertType.ERROR, msg, ButtonType.OK);
-		alrt.showAndWait();
-	}
-
 }
