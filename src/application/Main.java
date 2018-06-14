@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 
 
 public class Main extends Application {	
@@ -18,7 +19,8 @@ public class Main extends Application {
 			primaryStage.setTitle("Gestore Eventi");
 			primaryStage.setWidth(primaryScreenBounds.getWidth()*0.5);
 			primaryStage.setHeight(primaryScreenBounds.getHeight()*0.75);
-			primaryStage.setResizable(false);	
+			primaryStage.setResizable(false);
+			primaryStage.getIcons().add(new Image("file:img/icon.png"));
 			
 			MySelectView selPane = new MySelectView(primaryStage);
 			Scene selScene = new Scene(selPane);
