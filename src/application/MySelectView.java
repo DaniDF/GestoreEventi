@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -35,16 +36,44 @@ import javafx.stage.FileChooser.ExtensionFilter;
 public class MySelectView extends BorderPane implements EventHandler<ActionEvent> {
 	private static String WELCOME_MESSAGE = "Welcome dear";
 	
-	private Button selectButton;
+	private TextField selectedFile;
+	private Button browseButton;
 	private Stage stage;
 	private List<File> sourceFiles;
+	private Button submit;
 	
 	public MySelectView(Stage stage) {
 		super();
 		this.stage = stage;
 		
 		this.setTop(this.getWelcomeMessage());
-		this.setCenter(this.getSelection());
+		this.setCenter(this.getInput());
+	}
+
+	private Node getInput() {
+		VBox result = new VBox();
+		
+		
+		
+		result.getChildren().add(this.getSelection());
+		result.getChildren().add(this.getSubmitArea());
+		
+		result.setAlignment(Pos.CENTER);
+		
+		return result;
+	}
+
+	private Node getSubmitArea() {
+		HBox result = new HBox();
+		
+		this.submit = new Button("Avvia");
+		this.submit.setOnAction(this);
+		
+		result.getChildren().add(this.submit);
+		result.setPadding(new Insets(10,0,0,0));
+		result.setAlignment(Pos.CENTER);
+		
+		return result;
 	}
 
 	private Node getWelcomeMessage() {
@@ -63,12 +92,17 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 	}
 
 	private Node getSelection() {
-		VBox result = new VBox();
+		HBox result = new HBox();
 		
-		this.selectButton = new Button("Seleziona");
-		this.selectButton.setOnAction(this);
+		this.selectedFile = new TextField();
+		this.selectedFile.setPrefColumnCount(25);
+		this.selectedFile.setEditable(false);
 		
-		result.getChildren().add(this.selectButton);
+		this.browseButton = new Button("Browse");
+		this.browseButton.setOnAction(this::browseHandler);
+		
+		result.getChildren().add(this.selectedFile);
+		result.getChildren().add(this.browseButton);
 		result.setAlignment(Pos.CENTER);
 		
 		return result;
@@ -76,16 +110,19 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 
 	@Override
 	public void handle(ActionEvent arg0) {
+		if(this.sourceFiles == null) Controller.myAlert(AlertType.WARNING, "Can't continue without a file!", ButtonType.CLOSE);
+		else {
+			this.setRootView();
+		}
+	}
+	
+	public void browseHandler(ActionEvent arg0) {
 		FileChooser inFile = new FileChooser();
 		inFile.setTitle("Select file");
 		inFile.setSelectedExtensionFilter(new ExtensionFilter(".txt", ".dat"));
 		
 		this.sourceFiles = inFile.showOpenMultipleDialog(this.stage);
-		
-		if(this.sourceFiles == null) Controller.myAlert(AlertType.WARNING, "Can't continue without a file!", ButtonType.CLOSE);
-		else {
-			this.setRootView();
-		}
+		this.selectedFile.setText(this.sourceFiles.toString().replace("[", "").replace("]", ""));
 	}
 	
 	public List<File> getSourceFiles(){
@@ -106,18 +143,23 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 			}
 		}
 		
-		return result;
+		return (result.size() == 0)? null : result;
 	}
 	
 	private void setRootView() {
-		Controller controller = new MyController(this.getPersisterList());
-		
-		Pane root = new MyRootView(controller);			
-		Scene scene = new Scene(root);
-		
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		
-		this.stage.setScene(scene);
-		this.stage.show();
+		try {
+			Controller controller = new MyController(this.getPersisterList());
+			
+			Pane root = new MyRootView(controller);			
+			Scene scene = new Scene(root);
+			
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			
+			this.stage.setScene(scene);
+			this.stage.show();
+		}
+		catch(IllegalArgumentException e) {
+			Controller.myAlert(AlertType.ERROR, "Errore:\nuno o più file selezionati non validi", ButtonType.CLOSE);
+		}
 	}
 }

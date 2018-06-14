@@ -156,7 +156,6 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		else this.outputArea.setText(sel.print());
 		
 		this.add(new Text(), 2, 0);
-		//this.add(this.getEventRemaning(Optional.ofNullable(this.possibleEvent.getValue())), 2, 0);
 	}
 
 	@Override
@@ -173,14 +172,7 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		
 		this.possibleEvent.setItems(FXCollections.observableArrayList(toShow));
 		
-		if(toShow.size() == 0) {
-			this.possibleEvent.setDisable(true);
-		}
-		else {
-			this.possibleEvent.setDisable(false);
-			this.possibleEvent.setValue(this.possibleEvent.getItems().get(0));
-		}
-		
+		this.possibleEvent.setDisable(toShow.size() == 0);		
 	}
 
 	private boolean checkEquals(CheckBox x, Event y) {

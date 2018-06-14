@@ -18,6 +18,7 @@ public class MyController implements Controller {
 	private List<Persister> persisterList;
 	
 	public MyController(List<Persister> persisterList) {
+		if(persisterList == null) throw new IllegalArgumentException("Invalid persister list");
 		this.persisterList = persisterList;
 	}
 	
