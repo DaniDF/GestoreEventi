@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 import it.Daniele.gestore.calendario.model.Calendar;
 import it.Daniele.gestore.calendario.model.Event;
-import it.Daniele.gestore.settings.AppSettings;
+import it.Daniele.gestore.settings.model.AppSettings;
 
 import java.io.BufferedReader;
 import java.io.IOException;

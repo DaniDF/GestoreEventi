@@ -1,0 +1,88 @@
+MONDIALI; 14 giugno 2018 18:00:00 MSK; 14 giugno 2018 20:00:00 MSK; Russia - Arabia Saudita; 5-0
+
+MONDIALI; 15 giugno 2018 15:00:00 MSK; 15 giugno 2018 17:00:00 MSK; Egitto - Uruguay
+MONDIALI; 15 giugno 2018 18:00:00 MSK; 15 giugno 2018 20:00:00 MSK; Marocco - Iran
+MONDIALI; 15 giugno 2018 21:00:00 MSK; 15 giugno 2018 23:00:00 MSK; Portogallo - Spagna
+
+MONDIALI; 16 giugno 2018 13:00:00 MSK; 16 giugno 2018 15:00:00 MSK; Francia - Australia
+MONDIALI; 16 giugno 2018 16:00:00 MSK; 16 giugno 2018 18:00:00 MSK; Argentina - Islanda
+MONDIALI; 16 giugno 2018 19:00:00 MSK; 16 giugno 2018 21:00:00 MSK; Perù - Danimarca
+MONDIALI; 16 giugno 2018 22:00:00 MSK; 17 giugno 2018 00:00:00 MSK; Croazia - Nigeria
+
+MONDIALI; 17 giugno 2018 15:00:00 MSK; 17 giugno 2018 17:00:00 MSK; Costa Rica - Serbia
+MONDIALI; 17 giugno 2018 18:00:00 MSK; 17 giugno 2018 20:00:00 MSK; Germania - Messico
+MONDIALI; 17 giugno 2018 21:00:00 MSK; 17 giugno 2018 23:00:00 MSK; Brasile - Svizzera
+
+MONDIALI; 18 giugno 2018 15:00:00 MSK; 18 giugno 2018 17:00:00 MSK; Svezia - Corea del Sud
+MONDIALI; 18 giugno 2018 18:00:00 MSK; 18 giugno 2018 20:00:00 MSK; Belgio - Panama
+MONDIALI; 18 giugno 2018 21:00:00 MSK; 18 giugno 2018 23:00:00 MSK; Tunisia - Inghilterra
+
+MONDIALI; 19 giugno 2018 15:00:00 MSK; 19 giugno 2018 17:00:00 MSK; Colombia - Giappone
+MONDIALI; 19 giugno 2018 18:00:00 MSK; 19 giugno 2018 20:00:00 MSK; Polonia - Senegal
+MONDIALI; 19 giugno 2018 21:00:00 MSK; 19 giugno 2018 23:00:00 MSK; Russia - Egitto
+
+MONDIALI; 20 giugno 2018 15:00:00 MSK; 20 giugno 2018 17:00:00 MSK; Portogallo - Marocco
+MONDIALI; 20 giugno 2018 18:00:00 MSK; 20 giugno 2018 20:00:00 MSK; Uruguay - Arabia Saudita
+MONDIALI; 20 giugno 2018 21:00:00 MSK; 20 giugno 2018 23:00:00 MSK; Iran - Spagna
+
+MONDIALI; 21 giugno 2018 15:00:00 MSK; 21 giugno 2018 17:00:00 MSK; Danimarca - Australia
+MONDIALI; 21 giugno 2018 18:00:00 MSK; 21 giugno 2018 20:00:00 MSK; Francia - Perù
+MONDIALI; 21 giugno 2018 21:00:00 MSK; 21 giugno 2018 23:00:00 MSK; Argentina - Croazia
+
+MONDIALI; 22 giugno 2018 15:00:00 MSK; 22 giugno 2018 17:00:00 MSK; Brasile - Costa Rica
+MONDIALI; 22 giugno 2018 18:00:00 MSK; 22 giugno 2018 20:00:00 MSK; Nigeria - Islanda
+MONDIALI; 22 giugno 2018 21:00:00 MSK; 22 giugno 2018 23:00:00 MSK; Serbia - Svizzera
+
+MONDIALI; 23 giugno 2018 15:00:00 MSK; 23 giugno 2018 17:00:00 MSK; Belgio - Tunisia
+MONDIALI; 23 giugno 2018 18:00:00 MSK; 23 giugno 2018 20:00:00 MSK; Corea del Sud - Messico
+MONDIALI; 23 giugno 2018 21:00:00 MSK; 23 giugno 2018 23:00:00 MSK; Germania - Svizzera
+
+MONDIALI; 24 giugno 2018 15:00:00 MSK; 24 giugno 2018 17:00:00 MSK; Inghilterra - Panama
+MONDIALI; 24 giugno 2018 18:00:00 MSK; 24 giugno 2018 20:00:00 MSK; Giappone - Senegal
+MONDIALI; 24 giugno 2018 21:00:00 MSK; 24 giugno 2018 23:00:00 MSK; Polonia - Colombia
+
+MONDIALI; 25 giugno 2018 17:00:00 MSK; 25 giugno 2018 19:00:00 MSK; Arabia Saudita - Egitto
+MONDIALI; 25 giugno 2018 17:00:00 MSK; 25 giugno 2018 19:00:00 MSK; Uruguay - Russia
+MONDIALI; 25 giugno 2018 21:00:00 MSK; 25 giugno 2018 23:00:00 MSK; Iran - Portogallo
+MONDIALI; 25 giugno 2018 21:00:00 MSK; 25 giugno 2018 23:00:00 MSK; Spagna - Marocco
+
+MONDIALI; 26 giugno 2018 17:00:00 MSK; 26 giugno 2018 19:00:00 MSK; Australia - Perù
+MONDIALI; 26 giugno 2018 17:00:00 MSK; 26 giugno 2018 19:00:00 MSK; Danimarca - Francia
+MONDIALI; 26 giugno 2018 21:00:00 MSK; 26 giugno 2018 23:00:00 MSK; Nigeria - Argentina
+MONDIALI; 26 giugno 2018 21:00:00 MSK; 26 giugno 2018 23:00:00 MSK; Islanda - Croazia
+
+MONDIALI; 27 giugno 2018 17:00:00 MSK; 27 giugno 2018 19:00:00 MSK; Messico - Svezia
+MONDIALI; 27 giugno 2018 17:00:00 MSK; 27 giugno 2018 19:00:00 MSK; Corea del Sud - Germania
+MONDIALI; 27 giugno 2018 21:00:00 MSK; 27 giugno 2018 23:00:00 MSK; Svizzera - Costa Rica
+MONDIALI; 27 giugno 2018 21:00:00 MSK; 27 giugno 2018 23:00:00 MSK; Serbia - Brasile
+
+MONDIALI; 28 giugno 2018 17:00:00 MSK; 28 giugno 2018 19:00:00 MSK; Senegal - Colombia
+MONDIALI; 28 giugno 2018 17:00:00 MSK; 28 giugno 2018 19:00:00 MSK; Giappone - Polonia
+MONDIALI; 28 giugno 2018 21:00:00 MSK; 28 giugno 2018 23:00:00 MSK; Inghilterra - Belgio
+MONDIALI; 28 giugno 2018 21:00:00 MSK; 28 giugno 2018 23:00:00 MSK; Panama - Tunisia
+
+MONDIALI; 30 giugno 2018 17:00:00 MSK; 30 giugno 2018 19:00:00 MSK; Ottavi di finale: Da definire
+MONDIALI; 30 giugno 2018 21:00:00 MSK; 30 giugno 2018 23:00:00 MSK; Ottavi di finale: Da definire
+
+MONDIALI; 01 luglio 2018 17:00:00 MSK; 01 luglio 2018 19:00:00 MSK; Ottavi di finale: Da definire
+MONDIALI; 01 luglio 2018 21:00:00 MSK; 01 luglio 2018 23:00:00 MSK; Ottavi di finale: Da definire
+
+MONDIALI; 02 luglio 2018 17:00:00 MSK; 02 luglio 2018 19:00:00 MSK; Ottavi di finale: Da definire
+MONDIALI; 02 luglio 2018 21:00:00 MSK; 02 luglio 2018 23:00:00 MSK; Da definire
+
+MONDIALI; 03 luglio 2018 17:00:00 MSK; 03 luglio 2018 19:00:00 MSK; Ottavi di finale: Da definire
+MONDIALI; 03 luglio 2018 21:00:00 MSK; 03 luglio 2018 23:00:00 MSK; Ottavi di finale: Da definire
+
+MONDIALI; 06 luglio 2018 17:00:00 MSK; 06 luglio 2018 19:00:00 MSK; Quarti di finale: Da definire
+MONDIALI; 06 luglio 2018 21:00:00 MSK; 06 luglio 2018 23:00:00 MSK; Quarti di finale: Da definire
+
+MONDIALI; 07 luglio 2018 17:00:00 MSK; 07 luglio 2018 19:00:00 MSK; Quarti di finale: Da definire
+MONDIALI; 07 luglio 2018 21:00:00 MSK; 07 luglio 2018 23:00:00 MSK; Quarti di finale: Da definire
+
+MONDIALI; 10 luglio 2018 21:00:00 MSK; 10 luglio 2018 23:00:00 MSK; Semifinali: Da definire
+
+MONDIALI; 11 luglio 2018 21:00:00 MSK; 11 luglio 2018 23:00:00 MSK; Semifinali: Da definire
+
+MONDIALI; 14 luglio 2018 17:00:00 MSK; 14 luglio 2018 19:00:00 MSK; Fianle per il 3° posto: Da definire
+
+MONDIALI; 15 luglio 2018 19:00:00 MSK; 15 luglio 2018 21:00:00 MSK; Finale: Da definire

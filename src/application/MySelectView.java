@@ -11,6 +11,7 @@ import it.Daniele.gestore.calendario.controller.MyController;
 import it.Daniele.gestore.calendario.persister.BadFileFormatException;
 import it.Daniele.gestore.calendario.persister.MyPersister;
 import it.Daniele.gestore.calendario.persister.Persister;
+import it.Daniele.gestore.settings.model.AppSettings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -42,9 +43,14 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 	private List<File> sourceFiles;
 	private Button submit;
 	
+	private AppSettings appSettings;
+	
 	public MySelectView(Stage stage) {
 		super();
+		
+		this.appSettings = new AppSettings();
 		this.stage = stage;
+		this.sourceFiles = appSettings.getPrefFiles();
 		
 		this.setTop(this.getWelcomeMessage());
 		this.setCenter(this.getInput());
@@ -52,8 +58,6 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 
 	private Node getInput() {
 		VBox result = new VBox();
-		
-		
 		
 		result.getChildren().add(this.getSelection());
 		result.getChildren().add(this.getSubmitArea());

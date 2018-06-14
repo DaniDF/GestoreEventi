@@ -1,7 +1,5 @@
 package it.Daniele.gestore.calendario.model;
 
-import it.Daniele.gestore.settings.AppSettings;
-
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.Duration;
@@ -10,6 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 import java.util.function.Supplier;
+
+import it.Daniele.gestore.settings.model.AppSettings;
+
 import java.io.Serializable;
 
 public abstract class Event implements Serializable, Comparable<Event> {
@@ -156,6 +157,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 		knownEventType.put("formula1", () -> new Formula1Event("",now,now,""));
 		knownEventType.put("mxgp", () -> new MXGPEvent("",now,now,""));
 		knownEventType.put("sbk", () -> new SBKEvent("",now,now,""));
+		knownEventType.put("mondiali", () -> new MondialiEvent("", now, now, ""));
 		
 		Supplier<? extends Event> result = null;
 		
