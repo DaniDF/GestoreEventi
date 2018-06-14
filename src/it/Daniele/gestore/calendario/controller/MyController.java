@@ -1,6 +1,5 @@
 package it.Daniele.gestore.calendario.controller;
 
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.SortedSet;
@@ -9,6 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import it.Daniele.gestore.calendario.model.Event;
+import it.Daniele.gestore.calendario.model.EventStatus;
 import it.Daniele.gestore.calendario.persister.BadFileFormatException;
 import it.Daniele.gestore.calendario.persister.Persister;
 import javafx.scene.control.Alert.AlertType;
@@ -46,7 +46,7 @@ public class MyController implements Controller {
 	
 	@Override
 	public Optional<Event> getNextEvent() {
-		SortedSet<Event> nextEvent = this.getFiltredEvents(x -> !x.getStart().isBefore(ZonedDateTime.now()));
+		SortedSet<Event> nextEvent = this.getFiltredEvents(x -> !x.getStatus().equals(EventStatus.FINISHED));
 		
 		return nextEvent.size() == 0 ? Optional.empty() : Optional.ofNullable(nextEvent.first());
 	}

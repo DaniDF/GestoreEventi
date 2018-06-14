@@ -4,36 +4,34 @@ import java.io.Reader;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.format.FormatStyle;
-import java.util.Locale;
 import java.util.StringTokenizer;
 
 import it.Daniele.gestore.calendario.model.Calendar;
 import it.Daniele.gestore.calendario.model.Event;
+import it.Daniele.gestore.settings.AppSettings;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 
 public class MyPersister implements Persister {
-	private static final String SEPARATOR = ";";
-	private static final Locale LOCALE_STANDARD = Locale.ITALY;
-	private static final FormatStyle FORMATSYLE_STANDARD = FormatStyle.LONG;
-	
 	private Reader reader;
 	private Calendar calendar;
+	private AppSettings appSettings;
 	
 	public MyPersister(Reader reader) throws BadFileFormatException {
 		if(reader == null) throw new IllegalArgumentException("Invalid source");
+		
+		this.appSettings = new AppSettings();
 		this.reader = reader;
 		
-		calendar = new Calendar();
+		this.calendar = new Calendar();
 		
 		try(BufferedReader in = new BufferedReader(this.reader)) {
 			String row = null;
 			
 			while((row= in.readLine()) != null) {
 				if(!row.equals("")) {
-					StringTokenizer str = new StringTokenizer(row, SEPARATOR);	//File format: -->"Titolo; dataStart; timeStart; dataFinish; timeFinish; descrizione; moreInfo"<--
+					StringTokenizer str = new StringTokenizer(row, this.appSettings.getFileSeparator());	//File format: -->"Titolo; dataStart; timeStart; dataFinish; timeFinish; descrizione; moreInfo"<--
 					
 					if(!str.hasMoreElements()) throw new BadFileFormatException("Invalid file format: name event missing");
 					String nameEvent= str.nextToken().trim();
@@ -43,7 +41,7 @@ public class MyPersister implements Persister {
 					try {temp = Event.getCorrectEventByName(nameEvent); temp.setTitle(nameEvent);}
 					catch(IllegalArgumentException e) {throw new BadFileFormatException("Invalid file format: name event incorrect");}
 					
-					DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(FORMATSYLE_STANDARD,FORMATSYLE_STANDARD).withLocale(LOCALE_STANDARD);
+					DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFormatStyleStandard(),this.appSettings.getFormatStyleStandard()).withLocale(this.appSettings.getStandardLocaleRead());
 	
 					if(!str.hasMoreElements()) throw new BadFileFormatException("Invalid file format: start date time event missing");
 					ZonedDateTime startDateTime = ZonedDateTime.parse(str.nextToken().trim(), dtF);
