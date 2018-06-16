@@ -98,7 +98,7 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 	private Node getSelection() {
 		HBox result = new HBox();
 		
-		this.selectedFile = new TextField();
+		this.selectedFile = new TextField(this.sourceFiles.toString().replace("[", "").replace("]", ""));
 		this.selectedFile.setPrefColumnCount(25);
 		this.selectedFile.setEditable(false);
 		

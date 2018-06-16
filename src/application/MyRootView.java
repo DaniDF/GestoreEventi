@@ -1,11 +1,8 @@
 package application;
 
-import java.time.Duration;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -21,7 +18,6 @@ import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -40,11 +36,11 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		
 		this.add(this.getInputControl(), 0, 0);
 		this.add(this.getOutputview(), 1, 0);
-		this.add(this.getEventRemaning(Optional.ofNullable(this.possibleEvent.getValue())), 2, 0);
+		//this.add(this.getEventRemaning(Optional.ofNullable(this.possibleEvent.getValue())), 2, 0);
 		
 		this.add(new Label("Prossimo evento: "), 0, 1);
 		this.add(this.getNextEvent(), 1, 1);
-		this.add(this.getEventRemaning(this.controller.getNextEvent()), 2, 1);
+		//this.add(this.getEventRemaning(this.controller.getNextEvent()), 2, 1);
 		
 		this.setVgap(50);
 		this.setHgap(20);
@@ -92,22 +88,6 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		
 		return result;
 	}
-	
-	private Node getProgress(Duration d) {
-		long hours = d.getSeconds() / 3600;
-		long mins = (d.getSeconds() - hours*3600) / 60;
-		long secs = d.getSeconds() - hours*3600 - mins*60;
-		
-		ProgressBar result = new ProgressBar(1);
-		
-		if(hours > 0) result.setProgress(this.mapProgress(hours));
-		else if(mins > 0) result.setProgress(this.mapProgress(mins));
-		else result.setProgress(this.mapProgress(secs));		
-		
-		result.setPrefWidth(250);
-		
-		return result;
-	}
 
 	private Node getOutputview() {
 		VBox result = new VBox();
@@ -121,30 +101,15 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 	
 	private Node getNextEvent() {
 		Text result = new Text();
-		Optional<Event> nextEvent = this.controller.getNextEvent();
+		List<Event> nextEvent = this.controller.getNextEvent();
 		
-		if(nextEvent.isPresent()) {
-			result.setText(nextEvent.get().print());
+		if(nextEvent.size() > 0) {
+			StringBuilder str = new StringBuilder();
+			
+			nextEvent.parallelStream().forEach(x -> str.append(x.print() + "\n\n"));
+			
+			result.setText(str.toString());
 		}
-		
-		return result;
-	}
-	
-	private Node getEventRemaning(Optional<Event> event) {
-		VBox result = new VBox();
-		Label desc = new Label();
-		Duration timeRemaning = Duration.ofSeconds(0);
-		
-		if(event.isPresent()) {
-			timeRemaning = Duration.between(ZonedDateTime.now(),event.get().getStart());
-			desc.setText("Manca: " + DurationFormatter.durationFormatter(timeRemaning));
-		}
-		else {
-			desc.setText("Nessun evento programmato");
-		}
-		
-		result.getChildren().add(desc);
-		result.getChildren().add(this.getProgress(timeRemaning));
 		
 		return result;
 	}
@@ -165,7 +130,7 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		for(CheckBox x : this.filterEvent) {
 			if(!x.isSelected()) {
 				toShow = toShow.parallelStream().filter(y -> !this.checkEquals(x,y))
-									   .collect(Collectors.toCollection(TreeSet::new));
+									   			.collect(Collectors.toCollection(TreeSet::new));
 			}
 			
 		}
@@ -182,7 +147,42 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 				.contains(y.getCompetitionType().toString());
 	}
 	
-	private double mapProgress(long x) {
+	/*private Node getEventRemaning(Optional<Event> event) {
+		VBox result = new VBox();
+		Label desc = new Label();
+		Duration timeRemaning = Duration.ofSeconds(0);
+		
+		if(event.isPresent()) {
+			timeRemaning = Duration.between(ZonedDateTime.now(),event.get().getStart());
+			desc.setText("Manca: " + DurationFormatter.durationFormatter(timeRemaning));
+		}
+		else {
+			desc.setText("Nessun evento programmato");
+		}
+		
+		result.getChildren().add(desc);
+		result.getChildren().add(this.getProgress(timeRemaning));
+		
+		return result;
+	}*/
+	
+	/*private Node getProgress(Duration d) {
+		long hours = d.getSeconds() / 3600;
+		long mins = (d.getSeconds() - hours*3600) / 60;
+		long secs = d.getSeconds() - hours*3600 - mins*60;
+		
+		ProgressBar result = new ProgressBar(1);
+		
+		if(hours > 0) result.setProgress(this.mapProgress(hours));
+		else if(mins > 0) result.setProgress(this.mapProgress(mins));
+		else result.setProgress(this.mapProgress(secs));		
+		
+		result.setPrefWidth(250);
+		
+		return result;
+	}*/
+	
+	/*private double mapProgress(long x) {
 		int cont = 0;
 		long mapped = x;
 		
@@ -194,5 +194,5 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		mapped += (mapped > 0) ? 1 : -mapped;
 		
 		return (mapped == 0) ? 0 : ((double) x / (mapped * Math.pow(10, cont)));
-	}
+	}*/
 }

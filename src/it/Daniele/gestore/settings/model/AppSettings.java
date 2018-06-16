@@ -2,6 +2,7 @@ package it.Daniele.gestore.settings.model;
 
 import java.io.File;
 import java.time.format.FormatStyle;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,7 +18,10 @@ public class AppSettings {
 		this.fileSeparator = ";";
 		this.standardLocaleRead = Locale.ITALY;
 		this.standardLocalePrint = Locale.getDefault();
-		//this.prefFiles = Arrays.asList({new File("C:\\Users\\Daniele\\Documents\\MEGA\\Progetti\\gestore_eventi_java_GUI\\datiTest.txt")});
+		this.prefFiles = new LinkedList<>();
+		
+		this.prefFiles.add(new File("Motogp.txt"));
+		this.prefFiles.add(new File("Mondiali.txt"));
 	}
 
 	public FormatStyle getFormatStyleStandard() {

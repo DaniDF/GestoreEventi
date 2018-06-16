@@ -1,12 +1,12 @@
 MONDIALI; 14 giugno 2018 18:00:00 MSK; 14 giugno 2018 20:00:00 MSK; Russia - Arabia Saudita; 5-0
 
-MONDIALI; 15 giugno 2018 15:00:00 MSK; 15 giugno 2018 17:00:00 MSK; Egitto - Uruguay
-MONDIALI; 15 giugno 2018 18:00:00 MSK; 15 giugno 2018 20:00:00 MSK; Marocco - Iran
-MONDIALI; 15 giugno 2018 21:00:00 MSK; 15 giugno 2018 23:00:00 MSK; Portogallo - Spagna
+MONDIALI; 15 giugno 2018 15:00:00 MSK; 15 giugno 2018 17:00:00 MSK; Egitto - Uruguay; 0-1
+MONDIALI; 15 giugno 2018 18:00:00 MSK; 15 giugno 2018 20:00:00 MSK; Marocco - Iran; 0-1
+MONDIALI; 15 giugno 2018 21:00:00 MSK; 15 giugno 2018 23:00:00 MSK; Portogallo - Spagna; 3-3
 
-MONDIALI; 16 giugno 2018 13:00:00 MSK; 16 giugno 2018 15:00:00 MSK; Francia - Australia
-MONDIALI; 16 giugno 2018 16:00:00 MSK; 16 giugno 2018 18:00:00 MSK; Argentina - Islanda
-MONDIALI; 16 giugno 2018 19:00:00 MSK; 16 giugno 2018 21:00:00 MSK; Perù - Danimarca
+MONDIALI; 16 giugno 2018 13:00:00 MSK; 16 giugno 2018 15:00:00 MSK; Francia - Australia; 2-1
+MONDIALI; 16 giugno 2018 16:00:00 MSK; 16 giugno 2018 18:00:00 MSK; Argentina - Islanda; 1-1
+MONDIALI; 16 giugno 2018 19:00:00 MSK; 16 giugno 2018 21:00:00 MSK; Perù - Danimarca; 0-1
 MONDIALI; 16 giugno 2018 22:00:00 MSK; 17 giugno 2018 00:00:00 MSK; Croazia - Nigeria
 
 MONDIALI; 17 giugno 2018 15:00:00 MSK; 17 giugno 2018 17:00:00 MSK; Costa Rica - Serbia

@@ -1,7 +1,6 @@
 package it.Daniele.gestore.calendario.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
@@ -45,9 +44,9 @@ public class MyController implements Controller {
 	}
 	
 	@Override
-	public Optional<Event> getNextEvent() {
+	public List<Event> getNextEvent() {
 		SortedSet<Event> nextEvent = this.getFiltredEvents(x -> !x.getStatus().equals(EventStatus.FINISHED));
 		
-		return nextEvent.size() == 0 ? Optional.empty() : Optional.ofNullable(nextEvent.first());
+		return nextEvent.parallelStream().limit(2).collect(Collectors.toList());
 	}
 }
