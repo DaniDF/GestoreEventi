@@ -11,7 +11,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 
 
-public class Main extends Application {	
+public class Main extends Application {
+	@Override
+	public void init() {
+		it.Daniele.gestore.remote.RemoteControl.main(null);
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {			
@@ -32,6 +37,11 @@ public class Main extends Application {
 		} catch(Exception e) {
 			Controller.myAlert(AlertType.ERROR, "Unknown error\n" + e, ButtonType.CLOSE);
 		}
+	}
+	
+	@Override
+	public void stop() {
+		
 	}
 	
 	public static void main(String[] args) {

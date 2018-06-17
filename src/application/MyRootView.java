@@ -27,7 +27,6 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 	private List<CheckBox> filterEvent = new ArrayList<>();
 	private ComboBox<Event> possibleEvent;
 	private Controller controller;
-	
 	private Text outputArea;
 	
 	public MyRootView(Controller controller) {

@@ -6,12 +6,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-public class AppSettings {
+public final class AppSettings {
 	private FormatStyle formatStyleStandard;
 	private String fileSeparator;
 	private Locale standardLocaleRead;
 	private Locale standardLocalePrint;
 	private List<File> prefFiles;
+	
+	private String filesRemoteSource;
+	private String filesLocalSource;
 	
 	public AppSettings() {
 		this.formatStyleStandard = FormatStyle.LONG;
@@ -20,8 +23,11 @@ public class AppSettings {
 		this.standardLocalePrint = Locale.getDefault();
 		this.prefFiles = new LinkedList<>();
 		
-		this.prefFiles.add(new File("Motogp.txt"));
-		this.prefFiles.add(new File("Mondiali.txt"));
+		this.filesRemoteSource = "http://192.168.0.106/";
+		this.filesLocalSource = "data" + File.separatorChar;
+		
+		this.prefFiles.add(new File(this.filesLocalSource + "Motogp.txt"));
+		this.prefFiles.add(new File(this.filesLocalSource + "Mondiali.txt"));
 	}
 
 	public FormatStyle getFormatStyleStandard() {
@@ -67,5 +73,13 @@ public class AppSettings {
 	public void setPrefFiles(List<File> prefFiles) {
 		if(prefFiles == null) throw new IllegalArgumentException("Invalid file list");
 		this.prefFiles = prefFiles;
+	}
+
+	public String getFilesRemoteSource() {
+		return this.filesRemoteSource;
+	}
+
+	public String getFilesLocalSource() {
+		return this.filesLocalSource;
 	}
 }
