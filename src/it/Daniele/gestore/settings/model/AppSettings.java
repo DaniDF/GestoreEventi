@@ -23,7 +23,7 @@ public final class AppSettings {
 		this.standardLocalePrint = Locale.getDefault();
 		this.prefFiles = new LinkedList<>();
 		
-		this.filesRemoteSource = "http://192.168.0.106/";
+		this.filesRemoteSource = "http://192.168.0.106/GestoreEventiData/";
 		this.filesLocalSource = "data" + File.separatorChar;
 		
 		this.prefFiles.add(new File(this.filesLocalSource + "Motogp.txt"));
