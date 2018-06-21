@@ -22,6 +22,11 @@ public class Main extends Application {
 		try {			
 			Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 			primaryStage.setTitle("Gestore Eventi");
+			
+			if(primaryScreenBounds.getWidth() < 400 || primaryScreenBounds.getHeight() < 400) {
+				throw new ScreenDimensionException();
+			}
+			
 			primaryStage.setWidth(primaryScreenBounds.getWidth()*0.5);
 			primaryStage.setHeight(primaryScreenBounds.getHeight()*0.75);
 			primaryStage.setResizable(false);
@@ -35,7 +40,7 @@ public class Main extends Application {
 			primaryStage.show();
 			
 		} catch(Exception e) {
-			Controller.myAlert(AlertType.ERROR, "Unknown error\n" + e, ButtonType.CLOSE);
+			Controller.myAlert(AlertType.ERROR, e.getClass().toString().replace("class", ""), ButtonType.CLOSE);
 		}
 	}
 	

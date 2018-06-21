@@ -11,6 +11,12 @@ public final class AppSettings {
 	private String fileSeparator;
 	private Locale standardLocaleRead;
 	private Locale standardLocalePrint;
+	
+	private FormatStyle formatStyleStandardBackwardFile;
+	private String fileSeparatorBackwardFile;
+	private Locale standardLocaleReadBackwardFile;
+	private Locale standardLocalePrintBackwardFile;
+	
 	private List<File> prefFiles;
 	
 	private String filesRemoteSource;
@@ -21,6 +27,12 @@ public final class AppSettings {
 		this.fileSeparator = ";";
 		this.standardLocaleRead = Locale.ITALY;
 		this.standardLocalePrint = Locale.getDefault();
+		
+		this.formatStyleStandardBackwardFile = FormatStyle.SHORT;
+		this.fileSeparatorBackwardFile = " ";
+		this.standardLocaleReadBackwardFile = Locale.ITALY;
+		this.standardLocalePrintBackwardFile = Locale.ITALY;
+		
 		this.prefFiles = new LinkedList<>();
 		
 		this.filesRemoteSource = "http://192.168.0.106/GestoreEventiData/";
@@ -82,4 +94,37 @@ public final class AppSettings {
 	public String getFilesLocalSource() {
 		return this.filesLocalSource;
 	}
+
+	public FormatStyle getFormatStyleStandardBackwardFile() {
+		return this.formatStyleStandardBackwardFile;
+	}
+
+	void setFormatStyleStandardBackwardFile(FormatStyle formatStyleStandardBackwardFile) {
+		this.formatStyleStandardBackwardFile = formatStyleStandardBackwardFile;
+	}
+
+	public String getFileSeparatorBackwardFile() {
+		return this.fileSeparatorBackwardFile;
+	}
+
+	void setFileSeparatorBackwardFile(String fileSeparatorBackwardFile) {
+		this.fileSeparatorBackwardFile = fileSeparatorBackwardFile;
+	}
+
+	public Locale getStandardLocaleReadBackwardFile() {
+		return this.standardLocaleReadBackwardFile;
+	}
+
+	void setStandardLocaleReadBackwardFile(Locale standardLocaleReadBackwardFile) {
+		this.standardLocaleReadBackwardFile = standardLocaleReadBackwardFile;
+	}
+
+	public Locale getStandardLocalePrintBackwardFile() {
+		return this.standardLocalePrintBackwardFile;
+	}
+
+	void setStandardLocalePrintBackwardFile(Locale standardLocalePrintBackwardFile) {
+		this.standardLocalePrintBackwardFile = standardLocalePrintBackwardFile;
+	}
+
 }
