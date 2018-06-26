@@ -7,6 +7,6 @@ import java.util.List;
 import it.Daniele.gestore.calendario.model.Calendar;
 
 public interface Persister {
-	public List<Calendar> getCalendarList();
-	public void save(Writer writer) throws IOException;
+	List<Calendar> getCalendarList();
+	void save(Writer writer) throws IOException;
 }

@@ -2,6 +2,7 @@ package it.Daniele.gestore.settings.model;
 
 import java.io.File;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -22,6 +23,8 @@ public final class AppSettings {
 	private String filesRemoteSource;
 	private String filesLocalSource;
 	
+	private List<File> credentialsFiles;
+	
 	public AppSettings() {
 		this.formatStyleStandard = FormatStyle.LONG;
 		this.fileSeparator = ";";
@@ -40,6 +43,9 @@ public final class AppSettings {
 		
 		this.prefFiles.add(new File(this.filesLocalSource + "Motogp.txt"));
 		this.prefFiles.add(new File(this.filesLocalSource + "Mondiali.txt"));
+		
+		this.credentialsFiles = new ArrayList<>();
+		this.credentialsFiles.add(new File("credentials.dat"));
 	}
 
 	public FormatStyle getFormatStyleStandard() {
@@ -125,6 +131,10 @@ public final class AppSettings {
 
 	void setStandardLocalePrintBackwardFile(Locale standardLocalePrintBackwardFile) {
 		this.standardLocalePrintBackwardFile = standardLocalePrintBackwardFile;
+	}
+
+	public List<File> getCredentialsFiles() {
+		return credentialsFiles;
 	}
 
 }

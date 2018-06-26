@@ -20,7 +20,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 	private ZonedDateTime finish;
 	private String description;
 	private Optional<String> moreInfo;
-	private AppSettings appSettings;
+	AppSettings appSettings;
 	
 	private static Map<String,Supplier<? extends Event>> knownEventType;
 	
@@ -117,7 +117,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 		result.append("\nFinish:\t");
 		result.append(dtF.format(this.getFinish()));
 		result.append("\n");
-		result.append(this.getStatus().toString().replace("_", " "));
+		result.append(this.getStatus().toString());
 		result.append("\n\n");
 		
 		result.append(this.getDescription());
@@ -137,7 +137,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 		result.append(": ");
 		result.append(this.getDescription());
 		result.append("  -  ");
-		result.append(this.getStatus().toString().replace("_", " "));
+		result.append(this.getStatus().toString());
 		
 		return result.toString();
 	}
