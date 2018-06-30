@@ -19,7 +19,7 @@ public class RemoteControl {
 		
 		for(File x : appSettings.getPrefFiles()) {
 			try {
-				URL website = new URL((appSettings.getFilesRemoteSource() + x.toString().replace(appSettings.getFilesLocalSource(), "")));
+				URL website = new URL((appSettings.getFilesRemoteSource() + x.toString().replace(File.separator, "/")));
 				Path localDir = Paths.get(appSettings.getFilesLocalSource());
 				
 				if(Files.notExists(localDir)) Files.createDirectory(localDir);
