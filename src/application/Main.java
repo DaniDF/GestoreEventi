@@ -1,5 +1,6 @@
 package application;
 
+import it.Daniele.gestore.BackwardCompatibility.TextMode;
 import it.Daniele.gestore.calendario.controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
@@ -12,9 +13,16 @@ import javafx.scene.image.Image;
 
 
 public class Main extends Application {
+	private static String[] args;
+	
 	@Override
 	public void init() {
 		it.Daniele.gestore.remote.RemoteControl.main(null);
+		
+		if(System.console() != null) {
+			TextMode.main(Main.args);
+			this.stop();
+		}
 	}
 	
 	@Override
@@ -50,6 +58,7 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		Main.args = args;
 		launch(args);
 	}
 }

@@ -110,7 +110,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 		StringBuilder result = new StringBuilder();
 		DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFormatStyleStandard()).withLocale(this.appSettings.getStandardLocalePrint());
 		
-		result.append("Title: ");
+		result.append("Title:\t");
 		result.append(this.getTitle());
 		result.append("\nStart:\t");
 		result.append(dtF.format(this.getStart()));
@@ -134,7 +134,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 		StringBuilder result = new StringBuilder();
 		
 		result.append(this.getTitle());
-		result.append(": ");
+		result.append(":\t");
 		result.append(this.getDescription());
 		result.append("  -  ");
 		result.append(this.getStatus().toString());
