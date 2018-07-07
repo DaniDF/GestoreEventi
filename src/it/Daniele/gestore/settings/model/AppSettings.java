@@ -38,7 +38,7 @@ public final class AppSettings {
 		
 		this.prefFiles = new LinkedList<>();
 		
-		this.filesRemoteSource = "http://192.168.0.106/GestoreEventiData/";
+		this.filesRemoteSource = "http://danybiker24.altervista.org/GestoreEventiData/";
 		this.filesLocalSource = "data" + File.separator;
 		
 		this.prefFiles.add(new File(this.filesLocalSource + "Motogp.txt"));
