@@ -19,6 +19,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
@@ -70,7 +72,11 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 	private Node getSubmitArea() {
 		HBox result = new HBox();
 		
-		this.submit = new Button("Avvia");
+		ImageView tikImg = new ImageView(new Image("file:img/tik.png"));
+		tikImg.setFitHeight(24);
+		tikImg.setFitWidth(24);
+		
+		this.submit = new Button("Avvia", tikImg);
 		this.submit.setOnAction(this);
 		
 		result.getChildren().add(this.submit);
@@ -114,6 +120,8 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 
 	@Override
 	public void handle(ActionEvent arg0) {
+		it.Daniele.gestore.remote.RemoteControl.main(null);
+		
 		if(this.sourceFiles == null) Controller.myAlert(AlertType.WARNING, "Can't continue without a file!", ButtonType.CLOSE);
 		else {
 			this.setRootView();
@@ -125,7 +133,7 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 		inFile.setTitle("Select file");
 		inFile.setSelectedExtensionFilter(new ExtensionFilter(".txt", ".dat"));
 		
-		this.sourceFiles = inFile.showOpenMultipleDialog(this.stage);
+		this.sourceFiles.addAll(inFile.showOpenMultipleDialog(this.stage));
 		
 		if(this.sourceFiles != null) this.selectedFile.setText(this.sourceFiles.toString().replace("[", "").replace("]", ""));
 	}
@@ -151,11 +159,11 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 		return (result.size() == 0)? null : result;
 	}
 	
-	private void setRootView() {
+	void setRootView() {
 		try {
 			Controller controller = new MyController(this.getPersisterList());
 			
-			Pane root = new MyRootView(controller);			
+			Pane root = new MyRootView(this.stage,controller);			
 			Scene scene = new Scene(root);
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

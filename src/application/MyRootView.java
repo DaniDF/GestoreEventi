@@ -15,35 +15,55 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 	private List<CheckBox> filterEvent = new ArrayList<>();
 	private ComboBox<Event> possibleEvent;
 	private Controller controller;
+	private Stage stage;
 	private Text outputArea;
+	private Button refreshButton;
 	
-	public MyRootView(Controller controller) {
+	public MyRootView(Stage stage, Controller controller) {
 		super();
 		this.controller = controller;
+		this.stage = stage;
 		
-		this.add(this.getInputControl(), 0, 0);
-		this.add(this.getOutputview(), 1, 0);
-		//this.add(this.getEventRemaning(Optional.ofNullable(this.possibleEvent.getValue())), 2, 0);
+		this.add(this.getRefresh(), 0, 0);
 		
-		this.add(new Label("Prossimo evento: "), 0, 1);
-		this.add(this.getNextEvent(), 1, 1);
-		//this.add(this.getEventRemaning(this.controller.getNextEvent()), 2, 1);
+		this.add(this.getInputControl(), 0, 1);
+		this.add(this.getOutputview(), 1, 1);
 		
+		this.add(new Label("Prossimo evento: "), 0, 2);
+		this.add(this.getNextEvent(), 1, 2);
+
 		this.setVgap(50);
 		this.setHgap(20);
 		this.setPadding(new Insets(15));
+	}
+
+	private Node getRefresh() {
+		ImageView refreshImg = new ImageView(new Image("file:img/refresh.png"));
+		refreshImg.setFitHeight(24);
+		refreshImg.setFitWidth(24);
+		this.refreshButton = new Button("Refresh",refreshImg);
+		
+		this.refreshButton.setOnAction(x -> {it.Daniele.gestore.remote.RemoteControl.main(null);
+											 new MySelectView(this.stage).setRootView();
+											});
+		
+		return this.refreshButton;
 	}
 
 	private Node getInputControl() {
@@ -145,53 +165,4 @@ public class MyRootView extends GridPane implements EventHandler<ActionEvent> {
 		return x.toString()
 				.contains(y.getCompetitionType().toString());
 	}
-	
-	/*private Node getEventRemaning(Optional<Event> event) {
-		VBox result = new VBox();
-		Label desc = new Label();
-		Duration timeRemaning = Duration.ofSeconds(0);
-		
-		if(event.isPresent()) {
-			timeRemaning = Duration.between(ZonedDateTime.now(),event.get().getStart());
-			desc.setText("Manca: " + DurationFormatter.durationFormatter(timeRemaning));
-		}
-		else {
-			desc.setText("Nessun evento programmato");
-		}
-		
-		result.getChildren().add(desc);
-		result.getChildren().add(this.getProgress(timeRemaning));
-		
-		return result;
-	}*/
-	
-	/*private Node getProgress(Duration d) {
-		long hours = d.getSeconds() / 3600;
-		long mins = (d.getSeconds() - hours*3600) / 60;
-		long secs = d.getSeconds() - hours*3600 - mins*60;
-		
-		ProgressBar result = new ProgressBar(1);
-		
-		if(hours > 0) result.setProgress(this.mapProgress(hours));
-		else if(mins > 0) result.setProgress(this.mapProgress(mins));
-		else result.setProgress(this.mapProgress(secs));		
-		
-		result.setPrefWidth(250);
-		
-		return result;
-	}*/
-	
-	/*private double mapProgress(long x) {
-		int cont = 0;
-		long mapped = x;
-		
-		while(mapped >= 10) {
-			mapped /= 10;
-			cont++;
-		}
-		
-		mapped += (mapped > 0) ? 1 : -mapped;
-		
-		return (mapped == 0) ? 0 : ((double) x / (mapped * Math.pow(10, cont)));
-	}*/
 }

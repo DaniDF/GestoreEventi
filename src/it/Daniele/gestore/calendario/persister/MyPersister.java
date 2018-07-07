@@ -26,7 +26,16 @@ public class MyPersister implements Persister {
 		
 		this.calendar = new Calendar();
 		
-		try(BufferedReader in = new BufferedReader(this.reader)) {
+		this.readData(this.reader);
+	}
+
+	@Override
+	public Calendar load() throws BadFileFormatException {
+		return this.calendar;
+	}
+	
+	private void readData(Reader reader) throws BadFileFormatException {
+		try(BufferedReader in = new BufferedReader(reader)) {
 			String row = null;
 			
 			while((row= in.readLine()) != null) {
@@ -63,7 +72,7 @@ public class MyPersister implements Persister {
 						}
 					}
 					
-					calendar.getCalendar().add(temp);
+					this.calendar.getCalendar().add(temp);
 				}
 				
 			}
@@ -72,11 +81,13 @@ public class MyPersister implements Persister {
 		} catch (DateTimeParseException e) {
 			throw new BadFileFormatException("Invalid file format: start or finish date or time event incorrect", e);
 		}
+		finally {
+			try {
+				reader.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
-
-	@Override
-	public Calendar load() throws BadFileFormatException {
-		return this.calendar;
-	}
-	
 }
