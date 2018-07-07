@@ -133,7 +133,7 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 		inFile.setTitle("Select file");
 		inFile.setSelectedExtensionFilter(new ExtensionFilter(".txt", ".dat"));
 		
-		this.sourceFiles.addAll(inFile.showOpenMultipleDialog(this.stage));
+		if(inFile.showOpenMultipleDialog(this.stage) != null) this.sourceFiles.addAll(inFile.showOpenMultipleDialog(this.stage));
 		
 		if(this.sourceFiles != null) this.selectedFile.setText(this.sourceFiles.toString().replace("[", "").replace("]", ""));
 	}

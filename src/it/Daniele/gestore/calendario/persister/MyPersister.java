@@ -81,13 +81,5 @@ public class MyPersister implements Persister {
 		} catch (DateTimeParseException e) {
 			throw new BadFileFormatException("Invalid file format: start or finish date or time event incorrect", e);
 		}
-		finally {
-			try {
-				reader.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 }
