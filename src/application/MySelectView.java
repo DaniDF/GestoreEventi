@@ -1,16 +1,10 @@
 package application;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.List;
 
 import it.Daniele.gestore.calendario.controller.Controller;
 import it.Daniele.gestore.calendario.controller.MyController;
-import it.Daniele.gestore.calendario.persister.BadFileFormatException;
-import it.Daniele.gestore.calendario.persister.MyPersister;
-import it.Daniele.gestore.calendario.persister.Persister;
 import it.Daniele.gestore.settings.model.AppSettings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -142,26 +136,9 @@ public class MySelectView extends BorderPane implements EventHandler<ActionEvent
 		return this.sourceFiles;
 	}
 	
-	public List<Persister> getPersisterList() {
-		if(this.getSourceFiles() == null) return null;
-		
-		List<Persister> result = new ArrayList<>();
-		
-		for(File x : this.getSourceFiles()) {
-			try {
-				result.add(new MyPersister(new FileReader(x)));
-			}
-			catch(BadFileFormatException | FileNotFoundException e) {
-				Controller.myAlert(AlertType.ERROR, "Errore Apertura file:\n" + x + "\n" + e, ButtonType.CLOSE);
-			}
-		}
-		
-		return (result.size() == 0)? null : result;
-	}
-	
 	void setRootView() {
 		try {
-			Controller controller = new MyController(this.getPersisterList());
+			Controller controller = new MyController(this.sourceFiles);
 			
 			Pane root = new MyRootView(this.stage,controller);			
 			Scene scene = new Scene(root);

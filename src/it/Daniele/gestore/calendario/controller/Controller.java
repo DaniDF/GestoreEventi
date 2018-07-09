@@ -15,7 +15,13 @@ public interface Controller {
 	public List<Event> getNextEvent();
 	
 	public static void myAlert(AlertType alertType,String msg, ButtonType buttonType) {
-		Alert alrt = new Alert(AlertType.ERROR, msg, ButtonType.OK);
-		alrt.showAndWait();
+		try {
+			Alert alert = new Alert(AlertType.ERROR, msg, ButtonType.OK);
+			alert.showAndWait();
+		} catch(IllegalStateException e) {
+			if(System.console() != null) {
+				System.err.println(msg);
+			}
+		}
 	}
 }

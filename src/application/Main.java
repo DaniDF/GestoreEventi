@@ -16,12 +16,9 @@ public class Main extends Application {
 	private static String[] args;
 	
 	@Override
-	public void init() {
-		it.Daniele.gestore.remote.RemoteControl.main(null);
-		
+	public void init() {		
 		if(System.console() != null) {
 			TextMode.main(Main.args);
-			this.stop();
 		}
 	}
 	
