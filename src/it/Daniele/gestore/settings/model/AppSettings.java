@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Locale;
 
 public final class AppSettings {
-	private FormatStyle formatStyleStandard;
+	private FormatStyle fileFormatStyleStandard;
 	private String fileSeparator;
 	private Locale standardLocaleRead;
 	private Locale standardLocalePrint;
+	private FormatStyle formatStyleStandardPrint;
 	
 	private FormatStyle formatStyleStandardBackwardFile;
 	private String fileSeparatorBackwardFile;
@@ -26,10 +27,11 @@ public final class AppSettings {
 	private List<File> credentialsFiles;
 	
 	public AppSettings() {
-		this.formatStyleStandard = FormatStyle.LONG;
+		this.fileFormatStyleStandard = FormatStyle.LONG;
 		this.fileSeparator = ";";
 		this.standardLocaleRead = Locale.ITALY;
 		this.standardLocalePrint = Locale.getDefault();
+		this.formatStyleStandardPrint = FormatStyle.FULL;
 		
 		this.formatStyleStandardBackwardFile = FormatStyle.SHORT;
 		this.fileSeparatorBackwardFile = " ";
@@ -48,13 +50,22 @@ public final class AppSettings {
 		this.credentialsFiles.add(new File("credentials.dat"));
 	}
 
-	public FormatStyle getFormatStyleStandard() {
-		return this.formatStyleStandard;
+	public FormatStyle getFileFormatStyleStandard() {
+		return this.fileFormatStyleStandard;
 	}
 
-	void setFormatStyleStandard(FormatStyle formatStyleStandard) {
+	void setFileFormatStyleStandard(FormatStyle formatStyleStandard) {
 		if(formatStyleStandard == null) throw new IllegalArgumentException("Invalid format style");
-		this.formatStyleStandard = formatStyleStandard;
+		this.fileFormatStyleStandard = formatStyleStandard;
+	}
+	
+	public FormatStyle getFormatStyleStandardPrint() {
+		return this.formatStyleStandardPrint;
+	}
+	
+	public void setFormatStyleStandardPrint(FormatStyle formatStyleStandardPrint) {
+		if(formatStyleStandardPrint == null) throw new IllegalArgumentException("Invalid format style");
+		this.formatStyleStandardPrint = formatStyleStandardPrint;
 	}
 
 	public String getFileSeparator() {
@@ -71,7 +82,7 @@ public final class AppSettings {
 	}
 
 	void setStandardLocalePrint(Locale standardLocalePrint) {
-		if(standardLocalePrint == null) throw new IllegalArgumentException("Invalid sandard");
+		if(standardLocalePrint == null) throw new IllegalArgumentException("Invalid standard");
 		this.standardLocalePrint = standardLocalePrint;
 	}
 	
@@ -80,7 +91,7 @@ public final class AppSettings {
 	}
 
 	void setStandardLocaleRead(Locale standardLocaleRead) {
-		if(standardLocaleRead == null) throw new IllegalArgumentException("Invalid sandard");
+		if(standardLocaleRead == null) throw new IllegalArgumentException("Invalid standard");
 		this.standardLocaleRead = standardLocaleRead;
 	}
 	
@@ -106,6 +117,7 @@ public final class AppSettings {
 	}
 
 	void setFormatStyleStandardBackwardFile(FormatStyle formatStyleStandardBackwardFile) {
+		if(formatStyleStandardBackwardFile == null) throw new IllegalArgumentException("Invalid format style");
 		this.formatStyleStandardBackwardFile = formatStyleStandardBackwardFile;
 	}
 
@@ -114,6 +126,7 @@ public final class AppSettings {
 	}
 
 	void setFileSeparatorBackwardFile(String fileSeparatorBackwardFile) {
+		if(fileSeparatorBackwardFile == null) throw new IllegalArgumentException("Invalid standard");
 		this.fileSeparatorBackwardFile = fileSeparatorBackwardFile;
 	}
 
@@ -122,6 +135,7 @@ public final class AppSettings {
 	}
 
 	void setStandardLocaleReadBackwardFile(Locale standardLocaleReadBackwardFile) {
+		if(standardLocaleReadBackwardFile == null) throw new IllegalArgumentException("Invalid standard");
 		this.standardLocaleReadBackwardFile = standardLocaleReadBackwardFile;
 	}
 
@@ -130,6 +144,7 @@ public final class AppSettings {
 	}
 
 	void setStandardLocalePrintBackwardFile(Locale standardLocalePrintBackwardFile) {
+		if(standardLocalePrintBackwardFile == null) throw new IllegalArgumentException("Invalid standard");
 		this.standardLocalePrintBackwardFile = standardLocalePrintBackwardFile;
 	}
 

@@ -18,7 +18,7 @@ public class MotoGPEvent extends Event {
 	@Override
 	public String print() {
 		StringBuilder result = new StringBuilder();
-		DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(super.appSettings.getFormatStyleStandard()).withLocale(super.appSettings.getStandardLocalePrint());
+		DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(super.appSettings.getFormatStyleStandardPrint()).withLocale(super.appSettings.getStandardLocalePrint());
 		
 		result.append("Title: ");
 		result.append(this.getTitle());

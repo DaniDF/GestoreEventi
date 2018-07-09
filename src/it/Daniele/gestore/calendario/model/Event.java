@@ -108,7 +108,7 @@ public abstract class Event implements Serializable, Comparable<Event> {
 	
 	public String print() {
 		StringBuilder result = new StringBuilder();
-		DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFormatStyleStandard()).withLocale(this.appSettings.getStandardLocalePrint());
+		DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFormatStyleStandardPrint()).withLocale(this.appSettings.getStandardLocalePrint());
 		
 		result.append("Title:\t");
 		result.append(this.getTitle());

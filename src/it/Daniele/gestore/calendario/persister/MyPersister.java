@@ -50,7 +50,7 @@ public class MyPersister implements Persister {
 					try {temp = Event.getCorrectEventByName(nameEvent); temp.setTitle(nameEvent);}
 					catch(IllegalArgumentException e) {throw new BadFileFormatException("Invalid file format: name event incorrect");}
 					
-					DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFormatStyleStandard(),this.appSettings.getFormatStyleStandard()).withLocale(this.appSettings.getStandardLocaleRead());
+					DateTimeFormatter dtF = DateTimeFormatter.ofLocalizedDateTime(this.appSettings.getFileFormatStyleStandard(),this.appSettings.getFileFormatStyleStandard()).withLocale(this.appSettings.getStandardLocaleRead());
 	
 					if(!str.hasMoreElements()) throw new BadFileFormatException("Invalid file format: start date time event missing");
 					ZonedDateTime startDateTime = ZonedDateTime.parse(str.nextToken().trim(), dtF);
